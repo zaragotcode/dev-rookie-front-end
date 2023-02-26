@@ -33,7 +33,7 @@ function App(): JSX.Element {
   const [jobs, setJobs] = useState<Job[]>([])
 
   useEffect((): void => {
-    const fetchProfiles = async (): Promise<void> => {
+    const fetchJobs = async (): Promise<void> => {
       try {
         const jobData: Job[] = await jobService.index()
         setJobs(jobData)
@@ -42,7 +42,7 @@ function App(): JSX.Element {
         
       }
     }
-    fetchProfiles()
+    fetchJobs()
   }, [user])
 
   const handleLogout = (): void => {

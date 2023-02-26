@@ -1,3 +1,5 @@
+
+//types
 import { Job } from "../../types/models"
 
 interface ProfileCardProps {
@@ -10,7 +12,7 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   return (
     <article>
       <div>
-        {/* <h1>{props.companyName}</h1> */}
+        <h1>{job.companyName}</h1>
       </div>
     </article>
   )

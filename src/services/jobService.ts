@@ -1,16 +1,14 @@
 // services
 import * as tokenService from './tokenService'
 
-import { Profile } from '../types/models'
+import { Job } from '../types/models'
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/profiles`
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/jobs`
 
-async function index(): Promise<Profile[]> {
+async function index(): Promise<Job[]> {
   try {
-    const res = await fetch(BASE_URL, {
-      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
-    })
-    return await res.json() as Profile[]
+    const res = await fetch(BASE_URL)
+    return res.json()
   } catch (error) {
     throw error
   }
