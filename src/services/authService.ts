@@ -11,7 +11,7 @@ import {
 } from '../types/forms'
 import { User } from '../types/models'
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/auth`
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/auth`
 
 async function signup(
   formData: SignupFormData, 

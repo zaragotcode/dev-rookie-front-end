@@ -20,3 +20,14 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Job {
+  companyName: string;
+  logo?: string;
+  position: string;
+  applyLink?: string;
+  salary?: number;
+  id: number;
+  createdAt: string;
+  updatedAt: string; 
+}

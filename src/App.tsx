@@ -1,5 +1,5 @@
 // npm modules 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Jobs from './pages/Jobs/Jobs'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -15,17 +16,34 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as profileService from './services/jobService'
+import * as jobService from './services/jobService'
+
 
 // stylesheets
 import './App.css'
 
 // types
-import { User } from './types/models'
+import { User, Job } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
   
   const [user, setUser] = useState<User | null>(authService.getUser())
+  const [jobs, setJobs] = useState<Job[]>([])
+
+  useEffect((): void => {
+    const fetchProfiles = async (): Promise<void> => {
+      try {
+        const jobData: Job[] = await jobService.index()
+        setJobs(jobData)
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
+    fetchProfiles()
+  }, [user])
 
   const handleLogout = (): void => {
     authService.logout()
@@ -51,11 +69,9 @@ function App(): JSX.Element {
           element={<Login handleAuthEvt={handleAuthEvt} />}
         />
         <Route
-          path="/profiles"
+          path="/jobs"
           element={
-            <ProtectedRoute user={user}>
-              <Profiles />
-            </ProtectedRoute>
+              <Jobs jobs={jobs}/>
           }
         />
         <Route
