@@ -2,11 +2,11 @@
 //types
 import { Job } from "../../types/models"
 
-interface JobCardProps {
+interface JobProps {
   job: Job
 }
 
-const ProfileCard = (props: JobCardProps): JSX.Element => {
+const JobDetails = (props: JobProps): JSX.Element => {
   const { job } = props
 
   return (
@@ -24,4 +24,4 @@ const ProfileCard = (props: JobCardProps): JSX.Element => {
   )
 }
 
-export default ProfileCard
+export default JobDetails

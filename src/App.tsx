@@ -59,7 +59,9 @@ function App(): JSX.Element {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/" 
+          element={<Landing user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -70,6 +72,12 @@ function App(): JSX.Element {
         />
         <Route
           path="/jobs"
+          element={
+              <Jobs jobs={jobs}/>
+          }
+        />
+        <Route
+          path="/jobs/:id"
           element={
               <Jobs jobs={jobs}/>
           }
