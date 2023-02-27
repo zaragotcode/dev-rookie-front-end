@@ -14,4 +14,13 @@ async function index(): Promise<Job[]> {
   }
 }
 
-export { index }
+async function show(id: string): Promise<Job[]> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`)
+    return res.json()
+  } catch (error) {
+    throw error
+  }
+}
+
+export { index, show }

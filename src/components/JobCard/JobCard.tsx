@@ -12,13 +12,13 @@ const ProfileCard = (props: JobCardProps): JSX.Element => {
   return (
     <article>
       <div>
-        <img src={`${job.logo}`} alt={`${job.companyName}'s logo`} />
+        <img src={`${job?.logo}`} alt={`${job.companyName}'s logo`} />
         </div>
       <div>
-        <h1>{job.companyName}</h1>
+        <h1>{job?.companyName}</h1>
       </div>
       <div>
-        <h1>{job.position}</h1>
+        <h1>{job?.position}</h1>
       </div>
     </article>
   )

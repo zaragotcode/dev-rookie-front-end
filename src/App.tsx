@@ -13,6 +13,7 @@ import Jobs from './pages/Jobs/Jobs'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import JobDetails from './components/JobDetails/JobDetails'
 
 // services
 import * as authService from './services/authService'
@@ -79,7 +80,7 @@ function App(): JSX.Element {
         <Route
           path="/jobs/:id"
           element={
-              <Jobs jobs={jobs}/>
+              <JobDetails />
           }
         />
         <Route
@@ -87,6 +88,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profiles"
+          element={
+            <ProtectedRoute user={user}>
+              <Profiles  />
             </ProtectedRoute>
           }
         />
