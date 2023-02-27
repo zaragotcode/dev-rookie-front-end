@@ -29,7 +29,7 @@ useEffect(() => {
     <h1>Loading job details...</h1>
   }
 
-  const salary = jobDetails.salary ? jobDetails.salary : 'Not specified'
+  // const salary = jobDetails.salary ? jobDetails.salary : 'Not specified'
 
 
   return (
@@ -41,11 +41,11 @@ useEffect(() => {
         <img src={`${jobDetails?.logo}`} alt={`${jobDetails?.companyName}'s logo`} />
         </div>
       <div>
-        <h3>Position: {jobDetails.position}</h3>
+        <h3>Position: {jobDetails?.position}</h3>
       </div>
       <div>
         <h3>Apply Here:  
-          <a href=''>
+          <a href={jobDetails?.applyLink}>
           {jobDetails?.companyName}'s Careers Page
           </a> 
         </h3>
