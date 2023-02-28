@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Jobs from './pages/Jobs/Jobs'
+import NewJob from './components/NewJob/NewJob'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -81,6 +82,14 @@ function App(): JSX.Element {
           path="/jobs/:id"
           element={
               <JobDetails />
+          }
+        />
+        <Route
+          path="/jobs/create"
+          element={
+            <ProtectedRoute user={user}>
+              <NewJob />
+            </ProtectedRoute>
           }
         />
         <Route

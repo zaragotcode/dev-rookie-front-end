@@ -23,4 +23,20 @@ async function show(id: string): Promise<Job> {
   }
 }
 
-export { index, show }
+async function create (jobData: Job): Promise<Job> {
+  try {
+    const res = await fetch(`${BASE_URL}/create`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jobData)
+    })
+    return await res.json() as Job
+  } catch (error) {
+    throw (error);
+  }
+}
+
+export { index, show, create }
