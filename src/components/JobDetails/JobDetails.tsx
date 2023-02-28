@@ -9,7 +9,7 @@ import * as jobService from "../../services/jobService"
 import { Job } from "../../types/models"
 
 const JobDetails = (): JSX.Element => {
-  const [ jobDetails, setJobDetails ] =  useState<Job | null>(null)
+  const [ jobDetails, setJobDetails ] = useState<Job | null>(null)
   const { id } = useParams() as {id: string}
 
 useEffect(() => {

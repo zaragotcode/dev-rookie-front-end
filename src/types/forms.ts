@@ -1,6 +1,15 @@
 /* ---------==== custom forms ====--------- */
 
-
+export interface JobFormData {
+  companyName: string;
+  logo?: string;
+  position: string;
+  applyLink?: string;
+  salary?: number;
+  id: number;
+  createdAt: string;
+  updatedAt: string; 
+}
 
 /* ---------===== auth forms =====--------- */
 

@@ -47,6 +47,12 @@ function App(): JSX.Element {
     fetchJobs()
   }, [user])
 
+  const handleAddJob = async (newJobData: Job): Promise<void> => {
+    const newJob = await jobService.create(newJobData)
+    setJobs([newJob, ...jobs])
+    navigate('/jobs')
+  }
+
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
@@ -88,7 +94,7 @@ function App(): JSX.Element {
           path="/jobs/create"
           element={
             <ProtectedRoute user={user}>
-              <NewJob />
+              <NewJob handleAddJob={handleAddJob}/>
             </ProtectedRoute>
           }
         />
