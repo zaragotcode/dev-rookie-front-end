@@ -8,18 +8,13 @@ import * as jobService from "../../services/jobService"
 //types
 import { Job } from "../../types/models"
 
-// type Params = {
-//   jobId: string | undefined
-// }
-
 const JobDetails = (): JSX.Element => {
-  const [ jobDetails, setJobDetails ] =  useState<Job[]>([])
+  const [ jobDetails, setJobDetails ] =  useState<Job | null>(null)
   const { id } = useParams() as {id: string}
 
 useEffect(() => {
   const fetchJob = async (): Promise<void> => {
-    const data: Job[] = await jobService.show(id)
-    console.log('THIS IS MY DATA !!!!', data);
+    const data: Job = await jobService.show(id)
     setJobDetails(data)
   }
   fetchJob()
@@ -29,12 +24,12 @@ useEffect(() => {
     <h1>Loading job details...</h1>
   }
 
-  // const salary = jobDetails.salary ? jobDetails.salary : 'Not specified'
+  const salary = jobDetails?.salary ? jobDetails.salary : 'Not specified'
 
 
   return (
     <article>
-      {/* <div>
+      <div>
         <h1>{jobDetails?.companyName}</h1>
       </div>
       <div>
@@ -55,7 +50,7 @@ useEffect(() => {
       </div>
       <div>
         <h6>Salary shown is based on the average given on the salary range and may be different based on your location within the United States.</h6>
-      </div> */}
+      </div>
     </article>
   )
 }

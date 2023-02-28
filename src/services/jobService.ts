@@ -14,7 +14,7 @@ async function index(): Promise<Job[]> {
   }
 }
 
-async function show(id: string): Promise<Job[]> {
+async function show(id: string): Promise<Job> {
   try {
     const res = await fetch(`${BASE_URL}/${id}`)
     return res.json()
