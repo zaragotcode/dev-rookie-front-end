@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { useParams, useLocation } from "react-router"
+import { useState } from "react"
+import { useLocation } from "react-router"
 
 //types
 import { Job } from "../../types/models"
