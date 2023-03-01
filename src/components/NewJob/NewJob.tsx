@@ -5,7 +5,7 @@ import { Job } from "../../types/models"
 import { JobFormData } from "../../types/forms"
 
 interface jobProp {
-  handleAddJob : (addJob: Job) => void
+  handleAddJob : (formData: JobFormData) => void
 }
 
 const NewJob = (props: jobProp): JSX.Element => {
@@ -14,10 +14,7 @@ const NewJob = (props: jobProp): JSX.Element => {
       logo: '',
       position: '',
       applyLink: '',
-      salary: 0,
-      id: 0,
-      createdAt: '',
-      updatedAt: '', 
+      salary: 0
     }
   )
   console.log('THIS IS MY FORM DATA',form);

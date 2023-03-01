@@ -6,9 +6,6 @@ export interface JobFormData {
   position: string;
   applyLink?: string;
   salary?: number;
-  id: number;
-  createdAt: string;
-  updatedAt: string; 
 }
 
 /* ---------===== auth forms =====--------- */

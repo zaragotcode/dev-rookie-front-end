@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
+import { Link } from "react-router-dom"
 
 
 // services
@@ -53,6 +54,10 @@ useEffect(() => {
       <div>
         <h6>Salary shown is based on the average given on the salary range and may be different based on your location within the United States.</h6>
       </div>
+        <Link to={`/jobs/${id}/edit`} 
+            state={jobDetails}>
+            <button>Edit Job</button>
+        </Link>
     </article>
   )
 }

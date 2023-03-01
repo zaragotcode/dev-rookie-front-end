@@ -2,6 +2,7 @@
 import * as tokenService from './tokenService'
 
 import { Job } from '../types/models'
+import { JobFormData } from '../types/forms'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/jobs`
 
@@ -23,7 +24,7 @@ async function show(id: string): Promise<Job> {
   }
 }
 
-async function create (jobData: Job): Promise<Job> {
+async function create (jobData: JobFormData): Promise<Job> {
   try {
     const res = await fetch(`${BASE_URL}/create`, {
       method: 'POST',
@@ -39,9 +40,9 @@ async function create (jobData: Job): Promise<Job> {
   }
 }
 
-async function update (jobData: Job): Promise<Job> {
+async function update (jobData: JobFormData, jobId: number): Promise<Job> {
   try {
-    const res = await fetch(`${BASE_URL}/${jobData.id}`, {
+    const res = await fetch(`${BASE_URL}/${jobId}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

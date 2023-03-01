@@ -10,12 +10,12 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Jobs from './pages/Jobs/Jobs'
 import NewJob from './components/NewJob/NewJob'
+import EditJobDetails from './components/EditJobDetails/EditJobDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import JobDetails from './components/JobDetails/JobDetails'
-
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/jobService'
@@ -27,6 +27,7 @@ import './App.css'
 
 // types
 import { User, Job } from './types/models'
+import { JobFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -47,10 +48,16 @@ function App(): JSX.Element {
     fetchJobs()
   }, [user])
 
-  const handleAddJob = async (newJobData: Job): Promise<void> => {
+  const handleAddJob = async (newJobData: JobFormData): Promise<void> => {
     const newJob = await jobService.create(newJobData)
     setJobs([newJob, ...jobs])
     navigate('/jobs')
+  }
+
+  const handleUpdateJob = async (JobData: JobFormData, jobId:number): Promise<void> => {
+    const updatedJob = await jobService.update(JobData, jobId)
+    setJobs(jobs.map((job) => jobId === job.id ? updatedJob : job))
+    navigate(`/jobs/${jobId}`)
   }
 
   const handleLogout = (): void => {
@@ -95,6 +102,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <NewJob handleAddJob={handleAddJob}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/jobs/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditJobDetails handleUpdateJob={handleUpdateJob}/>
             </ProtectedRoute>
           }
         />
