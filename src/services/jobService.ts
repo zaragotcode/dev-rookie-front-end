@@ -56,7 +56,7 @@ async function update (jobData: JobFormData, jobId: number): Promise<Job> {
   }
 }
 
-async function deleteJob (id: string): Promise<Job> {
+async function deleteJob (id: number): Promise<Job> {
   try {
     const res = await fetch(`${BASE_URL}/${id}}`, {
       method: 'DELETE',

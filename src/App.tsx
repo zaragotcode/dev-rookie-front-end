@@ -60,6 +60,13 @@ function App(): JSX.Element {
     navigate(`/jobs/${jobId}`)
   }
 
+  const handleDeleteJob = async (jobId:number): Promise<void> => {
+    const deletedJob = await jobService.deleteJob(jobId)
+    setJobs(jobs.filter(job => job.id !== deletedJob.id))
+    navigate(`/jobs`)
+  }
+
+
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
@@ -94,7 +101,7 @@ function App(): JSX.Element {
         <Route
           path="/jobs/:id"
           element={
-              <JobDetails user={user}/>
+              <JobDetails user={user} handleDeleteJob={handleDeleteJob}/>
           }
         />
         <Route
