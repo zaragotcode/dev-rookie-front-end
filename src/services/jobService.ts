@@ -39,4 +39,20 @@ async function create (jobData: Job): Promise<Job> {
   }
 }
 
-export { index, show, create }
+async function update (jobData: Job): Promise<Job> {
+  try {
+    const res = await fetch(`${BASE_URL}/${jobData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jobData)
+    })
+    return await res.json() as Job
+  } catch (error) {
+    throw (error);
+  }
+}
+
+export { index, show, create, update }
