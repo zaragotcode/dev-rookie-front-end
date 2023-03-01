@@ -25,6 +25,8 @@ useEffect(() => {
   }
 
   const salary = jobDetails?.salary ? jobDetails.salary : 'Not specified'
+  const jobLink = jobDetails?.applyLink ? jobDetails.applyLink : ''
+
 
 
   return (
@@ -41,7 +43,7 @@ useEffect(() => {
       <div>
         <h3>Apply Here:  
           <a href={jobDetails?.applyLink}>
-          {jobDetails?.companyName}'s Careers Page
+          {jobLink}
           </a> 
         </h3>
       </div>

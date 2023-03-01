@@ -37,9 +37,68 @@ const NewJob = (props: jobProp): JSX.Element => {
   }
 
   return (
-    <>
-    <h1>Hello</h1>
-    </>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <h3>Company Name</h3>
+            <input 
+              required
+              autoComplete="off"
+              type="text"
+              name="companyName"
+              value={form.companyName}
+              placeholder=""
+              onChange={handleChange}
+              />
+        </div>
+        <div>
+          <h3>Company Logo</h3>
+            <input
+              autoComplete="off"
+              type="text"
+              name="logo"
+              value={form.logo}
+              placeholder="Insert image URL here"
+              onChange={handleChange}
+              />
+        </div>
+        <div>
+          <h3>Position</h3>
+            <input 
+              required
+              autoComplete="off"
+              type="text"
+              name="position"
+              value={form.position}
+              placeholder=""
+              onChange={handleChange}
+              />
+        </div>
+        <div>
+          <h3>Apply Link</h3>
+            <input 
+              autoComplete="off"
+              type="text"
+              name="applyLink"
+              value={form.applyLink}
+              placeholder="Insert job link here"
+              onChange={handleChange}
+              />
+        </div>
+        <div>
+          <h3>Salary</h3>
+            <input
+              autoComplete="off"
+              type="number"
+              name="salary"
+              value={form.salary}
+              onChange={handleChange}
+              />
+              <h6>leave salary blank if not specified</h6>
+        </div>
+        <button type="submit">Create Job</button>
+      </form>
+    </div>
   )
 }
 
