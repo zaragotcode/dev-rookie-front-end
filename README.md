@@ -1,75 +1,52 @@
-# Decoupled PERN Stack with JWT Auth Template - Front End
+# devRookie
 
-This is the front end of a decoupled PERN Stack app that includes JWT Authentication.
+![devRookie Logo](public/devrookie-favicon.ico)
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-pern-jwt-auth-template-back-end-cjs), you'll have all you need to build a full stack PERN app!
+devRookie is a web application designed to make job hunting easier for entry-level software engineers. With its job board feature, devRookie lists entry-level positions, making it convenient for job seekers to seek and apply for positions tailored for their level of expertise.
 
-Use this to go build things! 🚀
+Whether you are a fresh graduate or changing careers, devRookie can help kickstart your software engineering journey.
 
-## To Use This Template
+In the words of our founder, "Rookie today, expert tomorrow." 
 
-**Replace `<name-of-your-app-here>`, including the `<` and `>` in the commands below with the name of your app!**
+## Getting Started
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-pern-jwt-auth-template-front-end-ts <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+🖱️ Click [here](https://devrookie-app.netlify.app/) to access the application.
 
-With the project open in VS Code, open a terminal and run:
+📒 [Link](https://trello.com/b/9bTmgji6/devrookie-project-board) to our planning materials on Trello.
 
-```bash
-rm -rf .git
-```
+⬅️ [Backend](https://github.com/zaragotcode/dev-rookie-back-end) repo link.
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## Technologies used 💾
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-Re-initialize a git repository:
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 
-```bash
-git init
-```
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-Create a repo for this project on GitHub and add that remote to your project with:
+![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-```bash
-git remote add origin your-repo-URL-here
-```
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
-Run `npm i` to fetch the template's dependencies:
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
-```bash
-npm i
-```
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-touch a `.env` file:
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-```bash
-touch .env
-```
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+ 
 
-Fill it with the following:
+## Latest Modifications 🧹
+- Implemented extra security on job edit and delete buttons (can't edit or delete a job you didn't create).
+- Restricted guest functionality in app
+- Updated favicon
 
-```
-VITE_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Ensure the project starts up with:
-
-```bash
-npm run dev
-```
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
+## Ice Box 🧊
+- [ ] Dark Mode!
+- [ ] Add section where developers can provide feedback on their experience with the company.
+- [ ] Employee/Employer system where employees can browse jobs while employers can create job postings.
+- [ ] Enum on profile for what type of developer the user is.
+- [ ] Employers and users can view profile details of devRookie members.
+- [ ] Users can edit their profile details.
