@@ -10,11 +10,14 @@ import * as jobService from "../../services/jobService"
 import { Job } from "../../types/models"
 import { User } from "../../types/models"
 
-interface Person {
+interface Props {
   user: User | null
+  handleDeleteJob : (jobId:string) => void
+
 }
 
-const JobDetails = (props: Person): JSX.Element => {
+
+const JobDetails = (props: Props): JSX.Element => {
   const [ jobDetails, setJobDetails ] = useState<Job | null>(null)
   const { id } = useParams() as {id: string}
 
@@ -26,13 +29,14 @@ useEffect(() => {
   fetchJob()
 }, [id])
 
-  if (!jobDetails) {
-    <h1>Loading job details...</h1>
-  }
+if (!jobDetails) {
+  <h1>Loading job details...</h1>
+}
 
-  const salary = jobDetails?.salary ? jobDetails.salary : 'Not specified'
-  const jobLink = jobDetails?.applyLink ? jobDetails.applyLink : ''
+const salary = jobDetails?.salary ? jobDetails.salary : 'Not specified'
+const jobLink = jobDetails?.applyLink ? jobDetails.applyLink : ''
 
+console.log(id);
 
 
   return (
@@ -65,6 +69,12 @@ useEffect(() => {
             <button>Edit Job</button>
         </Link>
       }
+      <div>
+      {props.user && jobDetails?.profileId === props.user.profile.id &&
+        <button onClick={() => props.handleDeleteJob(id)}>Delete Job</button>
+      }
+      </div>
+      
     </article>
   )
 }

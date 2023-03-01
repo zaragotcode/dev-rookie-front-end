@@ -60,9 +60,9 @@ function App(): JSX.Element {
     navigate(`/jobs/${jobId}`)
   }
 
-  const handleDeleteJob = async (jobId:number): Promise<void> => {
-    const deletedJob = await jobService.deleteJob(jobId)
-    setJobs(jobs.filter(job => job.id !== deletedJob.id))
+  const handleDeleteJob = async (jobId:string): Promise<void> => {
+    await jobService.deleteJob(jobId)    
+    setJobs(jobs.filter(job => job.id !== parseInt(jobId)))
     navigate(`/jobs`)
   }
 

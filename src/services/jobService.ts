@@ -56,9 +56,11 @@ async function update (jobData: JobFormData, jobId: number): Promise<Job> {
   }
 }
 
-async function deleteJob (id: number): Promise<Job> {
+async function deleteJob (id: string): Promise<Job> {
+  console.log('this is my service id',typeof parseInt(id));
+  
   try {
-    const res = await fetch(`${BASE_URL}/${id}}`, {
+    const res = await fetch(`${BASE_URL}/${parseInt(id)}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

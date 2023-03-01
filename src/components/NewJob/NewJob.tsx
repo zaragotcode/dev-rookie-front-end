@@ -17,8 +17,6 @@ const NewJob = (props: jobProp): JSX.Element => {
       salary: 0
     }
   )
-  console.log('THIS IS MY FORM DATA',form);
-  
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [evt.target.name]: evt.target.value})
