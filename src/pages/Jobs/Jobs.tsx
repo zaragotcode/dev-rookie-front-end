@@ -17,7 +17,6 @@ const Jobs = (props: JobProps): JSX.Element => {
       <h1>This is my list!</h1>
       {jobs.map((job: Job, idx) => 
       <Link key={idx} to={`/jobs/${job.id}`}>
-      
       <JobCard
         key={job.id}
         job={job}

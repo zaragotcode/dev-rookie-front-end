@@ -28,6 +28,7 @@ export interface Job {
   applyLink?: string;
   salary?: number;
   id: number;
+  profileId: number;
   createdAt: string;
   updatedAt: string; 
 }

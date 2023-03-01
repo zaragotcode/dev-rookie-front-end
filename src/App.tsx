@@ -94,7 +94,7 @@ function App(): JSX.Element {
         <Route
           path="/jobs/:id"
           element={
-              <JobDetails />
+              <JobDetails user={user}/>
           }
         />
         <Route

@@ -8,8 +8,13 @@ import * as jobService from "../../services/jobService"
 
 //types
 import { Job } from "../../types/models"
+import { User } from "../../types/models"
 
-const JobDetails = (): JSX.Element => {
+interface Person {
+  user: User | null
+}
+
+const JobDetails = (props: Person): JSX.Element => {
   const [ jobDetails, setJobDetails ] = useState<Job | null>(null)
   const { id } = useParams() as {id: string}
 
@@ -54,10 +59,12 @@ useEffect(() => {
       <div>
         <h6>Salary shown is based on the average given on the salary range and may be different based on your location within the United States.</h6>
       </div>
+      {props.user && jobDetails?.profileId === props.user.profile.id &&
         <Link to={`/jobs/${id}/edit`} 
             state={jobDetails}>
             <button>Edit Job</button>
         </Link>
+      }
     </article>
   )
 }
