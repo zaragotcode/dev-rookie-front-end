@@ -56,4 +56,19 @@ async function update (jobData: JobFormData, jobId: number): Promise<Job> {
   }
 }
 
-export { index, show, create, update }
+async function deleteJob (id: string): Promise<Job> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return await res.json() as Job
+  } catch (error) {
+    throw (error);
+  }
+}
+
+export { index, show, create, update, deleteJob}
