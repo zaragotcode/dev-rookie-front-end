@@ -1,6 +1,5 @@
 # devRookie
 
-![devRookie Logo](public/devrookie-favicon.ico)
 ![devRookie Job Page](https://i.imgur.com/OG6inoV.png)
 
 devRookie is a web application designed to make job hunting easier for entry-level software engineers. With its job board feature, devRookie lists entry-level positions, making it convenient for job seekers to seek and apply for positions tailored for their level of expertise.
